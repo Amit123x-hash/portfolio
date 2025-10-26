@@ -1,0 +1,400 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Amit Sajwan — Videographer & Editor</title>
+  <meta name="description" content="Amit Sajwan — Videographer & Editor. Cinematic event & promo reels. Dark, techy portfolio.">
+
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;800&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+
+  <style>
+    :root{
+      --bg:#070709;
+      --card:#0f1113;
+      --muted:#9aa3a8;
+      --neon:#00f0ff; /* cyan neon */
+      --accent:linear-gradient(90deg,#00f0ff,#6b6bff);
+      --glass: rgba(255,255,255,0.03);
+      --maxw:1200px;
+    }
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{
+      margin:0;
+      font-family:Inter,system-ui,Arial;
+      background: radial-gradient(1200px 700px at 10% 10%, rgba(0,240,255,0.03), transparent),
+                  radial-gradient(800px 400px at 90% 90%, rgba(107,107,255,0.02), transparent),
+                  var(--bg);
+      color:#e9eef0;
+      -webkit-font-smoothing:antialiased;
+      -moz-osx-font-smoothing:grayscale;
+      line-height:1.45;
+      scroll-behavior:smooth;
+    }
+
+    /* NAV */
+    nav{
+      position:fixed;
+      top:0;
+      left:0;
+      right:0;
+      height:64px;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      padding:0 28px;
+      backdrop-filter: blur(6px);
+      background: linear-gradient(180deg, rgba(7,7,9,0.65), rgba(7,7,9,0.35));
+      border-bottom: 1px solid rgba(255,255,255,0.03);
+      z-index:120;
+    }
+    .brand{
+      display:flex;
+      gap:12px;
+      align-items:center;
+    }
+    .logo{
+      width:44px;height:44px;border-radius:8px;
+      background: linear-gradient(180deg,#001e1f,#00303a);
+      box-shadow: 0 4px 18px rgba(0,240,255,0.06), inset 0 -6px 18px rgba(0,0,0,0.4);
+      display:flex;align-items:center;justify-content:center;
+      color:var(--neon);font-weight:800;font-family:Montserrat;
+      font-size:15px;
+      border:1px solid rgba(0,240,255,0.12);
+    }
+    .brand h1{font-family:Montserrat;margin:0;font-size:16px;color:var(--neon);letter-spacing:0.6px}
+    nav ul{list-style:none;display:flex;gap:18px;margin:0;padding:0;align-items:center}
+    nav a{color:var(--muted);text-decoration:none;font-weight:600;font-size:14px;padding:6px 10px;border-radius:8px;transition: all .18s ease}
+    nav a:hover{color:#ffffff;background:rgba(0,240,255,0.03);box-shadow:0 4px 18px rgba(0,240,255,0.04);}
+
+    /* Hero */
+    .hero{
+      min-height:calc(100vh - 64px);
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      text-align:center;
+      padding:96px 18px 48px;
+      background:
+        linear-gradient(180deg, rgba(0,0,0,0.2) 0%, rgba(0,0,0,0.6) 100%);
+    }
+    .hero-inner{max-width:var(--maxw);margin:auto}
+    .kicker{font-family:Montserrat;color:var(--neon);opacity:0.95;font-weight:700;letter-spacing:1px;margin-bottom:14px}
+    .hero h2{font-family:Montserrat;font-size:44px;margin:0 0 14px;color:#e9fbff;letter-spacing:-0.6px}
+    .hero p{color:var(--muted);font-size:18px;margin:0 auto;max-width:860px}
+
+    .hero-cta{margin-top:28px;display:flex;gap:12px;justify-content:center;flex-wrap:wrap}
+    .btn{
+      padding:10px 16px;border-radius:10px;border:1px solid rgba(0,240,255,0.12);
+      background:linear-gradient(180deg, rgba(0,240,255,0.02), rgba(255,255,255,0.01));
+      color:var(--neon);font-weight:700;text-decoration:none;font-size:14px;
+      box-shadow: 0 8px 30px rgba(0,240,255,0.03);
+      transition:transform .18s ease, box-shadow .18s ease;
+    }
+    .btn:hover{transform:translateY(-4px);box-shadow:0 18px 48px rgba(0,240,255,0.06)}
+
+    /* container */
+    .container{max-width:var(--maxw);margin:0 auto;padding:28px}
+
+    /* Section title */
+    .section-title{
+      color:var(--neon);
+      font-family:Montserrat;
+      font-size:28px;
+      margin-bottom:18px;
+      display:inline-block;
+      padding-bottom:6px;
+      border-bottom:2px solid rgba(0,240,255,0.08);
+    }
+
+    /* Projects grid */
+    .projects{padding:36px 18px 80px}
+    .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:20px}
+    .card{
+      background: linear-gradient(180deg, rgba(255,255,255,0.01), rgba(255,255,255,0.01));
+      border-radius:12px;overflow:hidden;border:1px solid rgba(0,240,255,0.06);
+      box-shadow: 0 8px 30px rgba(2,6,23,0.6);
+      transition:transform .35s cubic-bezier(.2,.9,.35,1), box-shadow .35s;
+      cursor:pointer;display:flex;flex-direction:column;
+      min-height:260px;
+    }
+    .card:hover{transform:translateY(-10px) scale(1.01);box-shadow:0 30px 70px rgba(0,240,255,0.08)}
+    .thumb{
+      width:100%;height:160px;object-fit:cover;display:block;
+      background:linear-gradient(90deg, rgba(0,240,255,0.04), rgba(107,107,255,0.02));
+    }
+    .meta{padding:14px 14px 18px;flex:1;display:flex;flex-direction:column;justify-content:space-between}
+    .title{font-family:Montserrat;color:var(--neon);font-size:16px;margin-bottom:8px}
+    .desc{color:var(--muted);font-size:13px;margin-bottom:12px}
+    .linkrow{display:flex;gap:10px;align-items:center}
+    .external{
+      font-weight:700;color:#0ff;text-decoration:none;font-size:13px;
+      padding:8px 10px;border-radius:8px;border:1px solid rgba(0,240,255,0.08);
+      transition:background .14s ease, transform .14s;
+      background:transparent;
+    }
+    .external:hover{background:rgba(0,240,255,0.03);transform:translateY(-3px)}
+
+    /* Confidential card style (private projects) */
+    .confidential .thumb{
+      filter: blur(2px) brightness(.6);
+      background:linear-gradient(90deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
+      display:flex;align-items:center;justify-content:center;color:var(--muted);font-weight:600;
+    }
+    .confidential .conf-badge{
+      width:100%;height:100%;display:flex;align-items:center;justify-content:center;flex-direction:column;
+      gap:6px;padding:8px;text-align:center;
+    }
+    .confidential .conf-title{color:var(--muted);font-size:14px;font-weight:700}
+    .confidential .conf-note{font-size:12px;color:#9aa3a8;max-width:86%;opacity:0.95}
+
+    /* Contact */
+    .contact{padding:36px 18px 96px;text-align:center}
+    .contact p{color:var(--muted);margin-bottom:10px}
+    .socials{display:flex;gap:12px;justify-content:center;margin-top:12px}
+    .socials a{padding:10px 14px;border-radius:10px;border:1px solid rgba(255,255,255,0.03);color:var(--neon);font-weight:700;text-decoration:none}
+    .small{font-size:13px;color:#9aa3a8}
+
+    /* Footer */
+    footer{padding:26px;text-align:center;color:#6e7b80;font-size:13px;border-top:1px solid rgba(255,255,255,0.02)}
+
+    /* Animations & utilities */
+    .fade-up{opacity:0;transform:translateY(18px);transition:all .6s cubic-bezier(.2,.9,.35,1)}
+    .visible{opacity:1;transform:none}
+
+    @media (max-width:700px){
+      .hero h2{font-size:28px}
+      .hero p{font-size:15px}
+      nav{padding:10px 16px}
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav aria-label="Main navigation">
+    <div class="brand" role="banner">
+      <div class="logo" aria-hidden="true">AS</div>
+      <div>
+        <h1 style="margin:0;font-size:14px">Amit Sajwan</h1>
+        <div class="small" style="margin-top:2px">Videographer & Editor</div>
+      </div>
+    </div>
+
+    <ul role="menu" aria-label="Primary">
+      <li><a href="#about">About</a></li>
+      <li><a href="#projects">Work</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </nav>
+
+  <!-- HERO -->
+  <header class="hero" role="banner">
+    <div class="hero-inner">
+      <div class="kicker">Cinematic • Modern • Tech</div>
+      <h2>Crafting cinematic stories with an editor's precision</h2>
+      <p>Hi — I'm Amit. I shoot and edit event and promotional content with a cinematic, tech-forward style. I have 2 years of hands-on experience and am actively producing work for social platforms and long-format edits.</p>
+
+      <div class="hero-cta">
+        <a class="btn" href="#projects">View Work</a>
+        <a class="btn" href="#contact" style="background:transparent;border:1px solid rgba(255,255,255,0.03);color:#dff">Contact</a>
+      </div>
+    </div>
+  </header>
+
+  <!-- ABOUT -->
+  <main>
+    <section id="about" class="container fade-up" style="padding-top:28px;padding-bottom:24px">
+      <div class="section-title">About Me</div>
+      <p style="max-width:900px;margin:14px auto;color:var(--muted)">
+        Videographer & editor focused on cinematic storytelling for events and brands. Two years of practice — real-world projects on Instagram and YouTube. Professionally active this month; building a portfolio and taking selective client work. I prioritize clarity in storytelling, fast turnarounds for socials, and ethical handling of private footage.
+      </p>
+    </section>
+
+    <!-- PROJECTS -->
+    <section id="projects" class="projects container">
+      <div style="display:flex;justify-content:space-between;align-items:end;gap:12px;flex-wrap:wrap;margin-bottom:18px">
+        <div>
+          <div class="section-title">Selected Work</div>
+          <div class="small" style="margin-top:6px;color:var(--muted)">Click any card to open the reel in a new tab (fast & clean).</div>
+        </div>
+      </div>
+
+      <div class="grid" role="list">
+
+        <!-- Rangtari 2025 — your reel (personal upload) -->
+        <article class="card fade-up" role="listitem" tabindex="0" onclick="openLink('https://www.instagram.com/reel/DP_ufJwD1x-/?igsh=Y3d0N3g3em04YWhu')">
+          <img class="thumb" alt="Rangtari 2025 thumbnail — Dandiya Night" src="https://via.placeholder.com/640x360.png?text=Rangtari+2025" />
+          <div class="meta">
+            <div>
+              <div class="title">Rangtari 2025 — Dandiya Night (Centrio Mall)</div>
+              <div class="desc">Event coverage — Uploaded on @amits.sajwan (personal upload)</div>
+            </div>
+            <div class="linkrow">
+              <a class="external" href="https://www.instagram.com/reel/DP_ufJwD1x-/?igsh=Y3d0N3g3em04YWhu" target="_blank" rel="noopener">Open Reel ↗︎</a>
+            </div>
+          </div>
+        </article>
+
+        <!-- Greafest 2025 — synthoria -->
+        <article class="card fade-up" role="listitem" tabindex="0" onclick="openLink('https://www.instagram.com/reel/DQBxpcbkpCd/?igsh=OGt2cW4wYnBzc3Rh')">
+          <img class="thumb" alt="Greafest 2025 thumbnail" src="https://via.placeholder.com/640x360.png?text=Greafest+2025" />
+          <div class="meta">
+            <div>
+              <div class="title">Greafest 2025 — Graphic Era Univ.</div>
+              <div class="desc">Event reel — Uploaded on @synthoria.geu</div>
+            </div>
+            <div class="linkrow">
+              <a class="external" href="https://www.instagram.com/reel/DQBxpcbkpCd/?igsh=OGt2cW4wYnBzc3Rh" target="_blank" rel="noopener">Open Reel ↗︎</a>
+            </div>
+          </div>
+        </article>
+
+        <!-- Haunted Apocalypse — Infraedge -->
+        <article class="card fade-up" role="listitem" tabindex="0" onclick="openLink('https://www.instagram.com/reel/DQRLBZ0EqJc/?igsh=MTNzbnNtMThtMmNzaA==')">
+          <img class="thumb" alt="Haunted Apocalypse thumbnail" src="https://via.placeholder.com/640x360.png?text=Haunted+Apocalypse" />
+          <div class="meta">
+            <div>
+              <div class="title">Haunted Apocalypse — Bluee Sky Bar</div>
+              <div class="desc">Promotional event reel — Uploaded on @infraedge_media</div>
+            </div>
+            <div class="linkrow">
+              <a class="external" href="https://www.instagram.com/reel/DQRLBZ0EqJc/?igsh=MTNzbnNtMThtMmNzaA==" target="_blank" rel="noopener">Open Reel ↗︎</a>
+            </div>
+          </div>
+        </article>
+
+        <!-- Team Uttarayani — YouTube Vlog -->
+        <article class="card fade-up" role="listitem" tabindex="0" onclick="openLink('https://youtu.be/T1yTs2ka-V8?si=t8GCtaWNB_iJkyL1')">
+          <img class="thumb" alt="Team Uttarayani vlog thumbnail" src="https://img.youtube.com/vi/T1yTs2ka-V8/maxresdefault.jpg" />
+          <div class="meta">
+            <div>
+              <div class="title">Team Uttarayani — Vlog (YouTube)</div>
+              <div class="desc">Edited vlog published on YouTube — Shows narrative pacing & color grading</div>
+            </div>
+            <div class="linkrow">
+              <a class="external" href="https://youtu.be/T1yTs2ka-V8?si=t8GCtaWNB_iJkyL1" target="_blank" rel="noopener">Watch on YouTube ↗︎</a>
+            </div>
+          </div>
+        </article>
+
+        <!-- Confidential / Private — Birthday/Wedding 1 -->
+        <article class="card confidential fade-up" role="listitem" tabindex="0">
+          <div class="thumb conf-badge" aria-hidden="true">
+            <div class="conf-title">Private — Confidential</div>
+            <div class="conf-note">Long-format wedding/birthday edit — not published. Available upon client consent (blurred/teaser shown here).</div>
+          </div>
+          <div class="meta">
+            <div>
+              <div class="title">Wedding/Birthday Edit — Private</div>
+              <div class="desc">Personal memory edit — not publicly posted to respect client privacy</div>
+            </div>
+            <div class="linkrow">
+              <a class="external" href="#" onclick="alert('This project is private. Replace with demo / blurred clip when permitted.');return false;">Details ↗︎</a>
+            </div>
+          </div>
+        </article>
+
+        <!-- Confidential / Private — Birthday/Wedding 2 -->
+        <article class="card confidential fade-up" role="listitem" tabindex="0">
+          <div class="thumb conf-badge" aria-hidden="true">
+            <div class="conf-title">Private — Confidential</div>
+            <div class="conf-note">Personal event edit — shown as a placeholder for ethical reasons.</div>
+          </div>
+          <div class="meta">
+            <div>
+              <div class="title">Wedding/Birthday Edit — Private</div>
+              <div class="desc">Confidential client work — teasers available only with permission</div>
+            </div>
+            <div class="linkrow">
+              <a class="external" href="#" onclick="alert('This project is private. Replace with demo / blurred clip when permitted.');return false;">Details ↗︎</a>
+            </div>
+          </div>
+        </article>
+
+        <!-- Placeholder — Mamaearth promo (coming) -->
+        <article class="card confidential fade-up" role="listitem" tabindex="0">
+          <div class="thumb conf-badge" aria-hidden="true">
+            <div class="conf-title">Coming Soon</div>
+            <div class="conf-note">Mamaearth promotional reel — upload pending. Will link when live.</div>
+          </div>
+          <div class="meta">
+            <div>
+              <div class="title">Mamaearth Promo — Pending</div>
+              <div class="desc">Placeholder for brand reel (will be updated when uploaded)</div>
+            </div>
+            <div class="linkrow">
+              <a class="external" href="#" onclick="alert('Not uploaded yet — will replace with live reel when available.');return false;">Pending ↗︎</a>
+            </div>
+          </div>
+        </article>
+
+        <!-- Placeholder — Hotel LUX promo (coming) -->
+        <article class="card confidential fade-up" role="listitem" tabindex="0">
+          <div class="thumb conf-badge" aria-hidden="true">
+            <div class="conf-title">Coming Soon</div>
+            <div class="conf-note">Hotel LUX by Heavenn promo — upload pending.</div>
+          </div>
+          <div class="meta">
+            <div>
+              <div class="title">Hotel LUX Promo — Pending</div>
+              <div class="desc">Placeholder for hotel promo — will update when live.</div>
+            </div>
+            <div class="linkrow">
+              <a class="external" href="#" onclick="alert('Not uploaded yet — will replace with live reel when available.');return false;">Pending ↗︎</a>
+            </div>
+          </div>
+        </article>
+
+      </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section id="contact" class="contact fade-up">
+      <div class="section-title">Contact</div>
+      <p class="small">For inquiries & bookings: reach out on Instagram or email directly.</p>
+      <div class="socials" role="navigation" aria-label="Social links">
+        <a href="https://www.instagram.com/amits.sajwan?igsh=dmJjYWprbnk0dmdm" target="_blank" rel="noopener">@amits.sajwan</a>
+        <a class="external" href="mailto:yourname@example.com">yourname@example.com</a>
+      </div>
+      <p style="margin-top:10px;color:var(--muted);max-width:720px;margin-left:auto;margin-right:auto">Note: Two wedding/birthday projects are private; public teasers will be shown only with client consent. This portfolio respects client privacy while showcasing edit skill through public reels and a YouTube vlog.</p>
+    </section>
+  </main>
+
+  <footer>
+    &copy; <span id="year"></span> Amit Sajwan — All rights reserved.
+  </footer>
+
+  <script>
+    // set year
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    // open link helper
+    function openLink(url){
+      window.open(url, '_blank', 'noopener');
+    }
+
+    // fade-up on scroll
+    const observer = new IntersectionObserver((entries)=>{
+      entries.forEach(e=>{
+        if(e.isIntersecting) e.target.classList.add('visible');
+      });
+    }, {threshold:0.12});
+
+    document.querySelectorAll('.fade-up').forEach(el=>observer.observe(el));
+
+    // allow keyboard activation
+    document.querySelectorAll('.card').forEach(card=>{
+      card.addEventListener('keydown', (ev)=>{
+        if(ev.key === 'Enter' || ev.key === ' ') {
+          const clickFn = card.getAttribute('onclick');
+          if(clickFn) { eval(clickFn); }
+        }
+      });
+    });
+  </script>
+
+</body>
+</html>
